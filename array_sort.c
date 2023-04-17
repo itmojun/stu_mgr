@@ -10,9 +10,12 @@ void bubble_sort(int nums[], int n, int order)
 	// 冒泡排序算法实现
 
 	int i, j, tmp;
+	int flag;
 
 	for(i = 0; i < n - 1; i++)
 	{
+			flag = 1;
+
 			for(j = 0; j < n -i -1; j++)
 			{
 					if(order ? (nums[j] < nums[j + 1]) : (nums[j] > nums[j + 1]))
@@ -20,8 +23,12 @@ void bubble_sort(int nums[], int n, int order)
 							tmp = nums[j];
 							nums[j] = nums[j + 1];
 							nums[j + 1] = tmp;
+
+							flag = 0;
 					}
 			}
+
+			if(flag) break;
 	}
 }
 
